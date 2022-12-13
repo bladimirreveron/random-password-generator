@@ -18,28 +18,20 @@ function writePassword() {
     var correctPrompts = getPrompts();
     var passwordText = document.querySelector("#password");
     
-    if (correctPrompts){
-      var newPassword = generatePassword();
-      passwordText.value = newPassword;
+    if (correctPrompts) {
+        var newPassword = generatePassword();
+        passwordText.value = newPassword;
     } else {
-      passwordText.value = "";
+        passwordText.value = "";
     }
-
 }
 
 function generatePassword() {
   var password = "";
-  for (var i = 0; i < passwordLenght; i++){
-    var randomIndex = Math.length(Math.random() * choiceArray.length);
+  for(var i = 0; i < passwordLenght; i++) {
+    var randomIndex = Math.floor(Math.random() * choiceArray.length);
     password = password + choiceArray[randomIndex];
   }
-// 1. prompt the user for the password criteria
-//    a. Password Length 8 < 128
-//    b. Lowercase, uppercase, numbers, special characters
-// 2. validate the input
-// 3. Generate password based on criteria
-
-// 4. display the generated password to the page
     return password;
 }
 
